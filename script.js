@@ -25,4 +25,15 @@ getPhotos().then((photos) => {
   ${renderPhotos}
   </div>
   `;
+
+  const photoImgs = Array.from(document.querySelectorAll('.my-photo'));
+  photoImgs.forEach((photoImg) => {
+    photoImg.addEventListener('click', (event) => {
+      const selectedPhotoSrc =
+        photoImg.src.substr(0, photoImg.src.length - 7) + `200/200`;
+      const selectedPhoto = document.getElementById('my-selected-photo');
+      selectedPhoto.src = selectedPhotoSrc;
+      selectedPhoto.style.display = 'inline';
+    });
+  });
 });
